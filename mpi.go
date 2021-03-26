@@ -613,7 +613,7 @@ func Send_float32(sendbuf []float32, dest, tag int, comm C.MPI_Comm, status *Sta
 
 	err := C.MPI_Send(
 		unsafe.Pointer(&sendbuf[0]), C.int(len(sendbuf)), FLOAT32,
-		C.int(dest), C.int(tag), comm, (*C.MPI_Status)(status))
+		C.int(dest), C.int(tag), comm)
 
 	if err != 0 {
 		log.Fatal(err)
